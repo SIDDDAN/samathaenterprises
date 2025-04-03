@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samatha Business Enterprises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #90caf9;
+        }
+
+        /* Hero section */
+      /* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    color: white;
+    padding: 0 2rem;
+    background: url('images/samathacampus2.JPG') center/cover no-repeat;
+}
+
+/* Dark Overlay for Better Text Visibility */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Slightly transparent overlay */
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+/* Call-to-Action Button */
+.hero .btn-primary {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #0073e6;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero .btn-primary:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+/* Animated Floating Dots */
+@keyframes floatingParticles {
+    0% { transform: translateY(0px); opacity: 0.5; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.5; }
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: floatingParticles 4s infinite ease-in-out;
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+
+        /* Business sections */
+        .business-section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a237e;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #1a237e;
+            margin: 10px auto;
+        }
+
+        /* Slider */
+        .slider-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Business content */
+        .business-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-section, .services-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .about-section h3, .services-section h3 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .about-section h3:after, .services-section h3:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #1a237e;
+            margin-top: 5px;
+        }
+
+        .about-section p, .services-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .services-list {
+            list-style: none;
+        }
+
+        .services-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list li i {
+            color: #1a237e;
+            margin-right: 10px;
+        }
+
+        /* Contact section with WhatsApp */
+        .contact-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Doctor section */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .doctor-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .doctor-info {
+            padding: 1.5rem;
+        }
+
+        .doctor-info h4 {
+            color: #1a237e;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-info h5 {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-info p {
+            color: #777;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .footer-section h4:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: white;
+            margin-top: 5px;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #90caf9;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .business-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Samatha Enterprises</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#samatha">Samatha Medical</a>
+                <a href="#vijayawada-med">Vijayawada Medical Services</a>
+                <a href="#study-center"> Vijayawada Study Center</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Samatha Enterprises</h1>
+            <p>Serving the community with excellence through our medical facilities and education center</p>
+        </div>
+    </section>
+
+    <!-- Samatha Medical Store Section -->
+    <section class="business-section" id="samatha">
+        <h2 class="section-title">Samatha Medical Stores</h2>
+        
+        <!-- Image slider -->
+        <div class="slider-container samatha-slider">
+            <div class="slide active" style="background-image: url('images/NFSS2317.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFSS2315.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFSS2312.JPG')"></div>
+        </div>
+        
+        <div class="business-content">
+            <div class="about-section">
+                <h3>About Us</h3>
+                <p>
+    <strong>Samatha Medical Stores</strong> has been a trusted name in healthcare for over four decades, dedicated to providing quality healthcare products and personalized service to our community. Our extensive inventory includes a wide range of medicines, health supplements, and medical equipment to cater to diverse healthcare needs.  
+</p>  
+<p>
+    With a team of highly qualified pharmacists, we ensure that every customer receives not just the right medication, but also expert guidance and compassionate care. At <strong>Samatha Medical Stores</strong>, we are committed to enhancing the well-being of our customers by offering reliable healthcare solutions with integrity and professionalism.  
+</p>
+            </div>
+            
+            <div class="services-section">
+    <h3>Our Services</h3>
+    <ul class="services-list">
+        <li><i class="fas fa-pills"></i> Prescription Filling</li>
+        <li><i class="fas fa-truck"></i> Home Delivery</li>
+        <li><i class="fas fa-notes-medical"></i> Health Consultations</li>
+        <li><i class="fas fa-leaf"></i> Ayurvedic & Herbal Medicines</li>
+        <li><i class="fas fa-capsules"></i> Generic Medicines</li>
+        <li><i class="fas fa-vial"></i> Diagnostic Services</li>
+        <li><i class="fas fa-wheelchair"></i> Medical Equipment</li>
+    </ul>
+</div>
+        </div>
+        
+        <div class="contact-section">
+<div class="contact-info">
+    <p>
+        <i class="fas fa-map-marker-alt"></i> 
+        Location: 
+        <a href="https://www.google.com/maps/search/?api=1&query=Door+No.+29-6-28,+Govinda+Rajulu+Naidu+St,+Nakkala+Road,+Ramachandra+Rao+Road,+Venkatswara+Rao+Street,+Suryaraopet,+Vijayawada,+Andhra+Pradesh+520002" 
+           target="_blank">
+            Door No. 29-6-28, Govinda Rajulu Naidu St, Nakkala Road, Ramachandra Rao Road, 
+            Venkatswara Rao Street, Suryaraopet, Vijayawada, Andhra Pradesh 520002
+        </a>
+    </p>
+    <p>
+        <i class="fas fa-phone"></i> 
+        Phone: 
+        <a href="tel:08662434040">0866-2434040</a>
+    </p>
+    <p>
+        <i class="fas fa-clock"></i> 
+        Hours: Mon-Sun 9AM-11PM
+    </p>
+</div>
+            <a href="https://wa.me/1234567890" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Vijayawada Medical Store Section -->
+    <section class="business-section" id="vijayawada-med">
+        <h2 class="section-title">Vijayawada Medical Services</h2>
+        
+        <!-- Image slider -->
+        <div class="slider-container vijayawada-slider">
+            <div class="slide active" style="background-image: url('images/NFSS2283.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFSS2287.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFSS2292.JPG')"></div>
+        </div>
+        
+        <div class="business-content">
+            <div class="about-section">
+                <h3>About Us</h3>
+                <p>
+    At <strong>Vijayawada Medical Services</strong>, we are committed to providing comprehensive medical services with a patient-first approach. Located in the heart of Vijayawada, we ensure easy accessibility and top-notch healthcare solutions for the community.
+</p>
+<p>
+    Our team of world-class doctors, equipped with extensive experience and prestigious medical education, is dedicated to delivering accurate diagnoses and the best treatment options tailored to each patient’s needs. With a focus on compassionate care and cutting-edge medical advancements, <strong>Vijayawada Medical Services</strong> strives to be your trusted partner in health and well-being.
+</p>
+            </div>
+            
+            <div class="services-section">
+                <h3>Our Services</h3>
+                <ul class="services-list">
+				 <li><i class="fas fa-user-md"></i> Doctor Consultations</li>
+                    <li><i class="fas fa-capsules"></i> Prescription Medications</li>
+                    <li><i class="fas fa-flask"></i> Lab Services</li>
+                    <li><i class="fas fa-ambulance"></i> Emergency Supplies</li>
+                    <li><i class="fas fa-procedures"></i> Hospital Equipment</li>
+                    <li><i class="fas fa-baby"></i> Baby Care Products</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Doctors Section -->
+        <h3 class="section-title">Our Doctors</h3>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/satyanaraynamurthy.JPG')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. K.V.V.Satyanarayana Murthy</h4>
+                    <h5>M.S. (Ortho), M.Ch. (Neuro), Consultant Neuro and Spinal Surgeon</h5>
+                    <p> </p>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/NFSS2299.JPG')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. Ch. Ayyappa Naidu</h4>
+                    <h5>M.S. (Ortho), Consultant Orthopedic Surgeon</h5>
+                    <p></p>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/NFSS2328.JPG')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. G. Gogene Prasidh</h4>
+                    <h5>M.D. (General Medicine), Physician and Diabetologist</h5>
+                    <p></p>
+                </div>
+            </div>
+			
+			 <div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/NFSS2311.JPG')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. P. Bhaskar Prakash </h4>
+                    <h5>M.D. (General Medicine), Consultant General Physician</h5>
+                    <p></p>
+                </div>
+            </div>
+			
+			 <div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. P. Jayakar Babu </h4>
+                    <h5>M.D. (Chest), Consultant Chest Physician</h5>
+                   <p></p>
+                </div>
+            </div>
+			
+			 <div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/DrHimabindhu.jpg')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. G. Himabindu</h4>
+                    <h5>MD DVL, Consultant Dermatologist, Venereologist, and Cosmetologist</h5>
+                     <p></p>
+                </div>
+            </div>
+			<div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/Drsasidhar.jpg')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. G. Shashidhar</h4>
+                    <h5>M.D., D.M. (Nephrology), Consultant Nephrologist</h5>
+                     <p></p>
+                </div>
+            </div>
+			<div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. N. Hari Prasad </h4>
+                    <h5>M.Ch. (Uro), Consultant Urologist, Andrologist, Urogynecologist, Laparoscopic & Transplant Surgeon</h5>
+                     <p></p>
+                </div>
+            </div>
+			<div class="doctor-card">
+                <div class="doctor-image" style="background-image: url('images/')"></div>
+                <div class="doctor-info">
+                    <h4>Dr. T.V. Basava Sankara Rao </h4>
+                    <h5>M.D. (R.T.), Consultant Specialist in Cancer Treatment, Retd. Professor & H.O.D. of Radiotherapy</h5>
+                     <p></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <<div class="contact-info">
+    <p>
+        <i class="fas fa-map-marker-alt"></i> 
+        Location: 
+        <a href="https://www.google.com/maps/search/?api=1&query=29-9-61,+Samatha+Campus,+Nakkala+Rd,+Suryaraopet,+Govinda+Rajulu+Naidu+Street,+Vijayawada,+Andhra+Pradesh+520002" 
+           target="_blank">
+            29-9-61, Samatha Campus, Nakkala Rd, Suryaraopet, Govinda Rajulu Naidu Street, Vijayawada, Andhra Pradesh 520002
+        </a>
+    </p>
+    <p>
+        <i class="fas fa-phone"></i> 
+        Phone: 
+        <a href="tel:+919032434040">+919032434040</a>
+    </p>
+    <p>
+        <i class="fas fa-clock"></i> 
+        Hours: Mon-Sat 9:30AM-9:30PM
+    </p>
+</div>
+            <a href="https://wa.me/1234567890" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Study Center Section -->
+    <section class="business-section" id="study-center">
+        <h2 class="section-title">Vijayawada Study Center</h2>
+        
+        <!-- Image slider -->
+        <div class="slider-container study-slider">
+            <div class="slide active" style="background-image: url('images/NFS05367.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFS05364.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFS05366.JPG')"></div>
+			<div class="slide active" style="background-image: url('images/NFS05369.JPG')"></div>
+            <div class="slide" style="background-image: url('images/NFS05458.JPG')"></div>
+            <div class="slide" style="background-image: url('images/Kalam.JPG')"></div>
+        </div>
+        
+        <div class="business-content">
+            <div class="about-section">
+                <h3>About Us</h3>
+                <p>
+    At <strong>Vijayawada Study Center</strong>, we are committed to providing a <strong>calm, peaceful, and focused</strong> study environment for learners of all ages. Whether you are a student preparing for competitive exams, a professional looking for a quiet workspace, or a researcher seeking a distraction-free zone, our center is designed to meet your needs.
+</p>
+<p>
+    Equipped with <strong>modern facilities</strong>, including high-speed Wi-Fi, well-lit reading areas, air-conditioned study rooms, and dedicated discussion zones, we strive to create an <strong>optimal learning atmosphere</strong>. Our study center fosters productivity by maintaining a <strong>noise-free and disciplined environment</strong>, ensuring that every visitor can focus without interruptions.
+</p>
+<p>
+    With <strong>flexible membership plans</strong>, comfortable seating, and access to essential resources, <strong>Vijayawada Study Center</strong> is the perfect place to enhance your learning journey.
+</p>
+            </div>
+            
+            <div class="services-section">
+                <h3>Our Services</h3>
+                <ul class="services-list">
+    <li><i class="fas fa-book-reader"></i> Quiet Study Spaces</li>
+    <li><i class="fas fa-user-graduate"></i> Competitive Exam Preparation</li>
+    <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi Access</li>
+    <li><i class="fas fa-newspaper"></i> Daily Newspapers & Magazines</li>
+    <li><i class="fas fa-restroom"></i> Clean & Well-Maintained Washrooms</li>
+    <li><i class="fas fa-lightbulb"></i> Bright & Comfortable Study Environment</li>
+    <li><i class="fas fa-shield-alt"></i> Safe & Secure Premises</li>
+    <li><i class="fas fa-charging-station"></i> Charging Ports for Laptops & Mobiles</li>
+</ul>
+            </div>
+        </div>
+        
+       
+        
+        <div class="contact-section">
+            <<div class="contact-info">
+    <p>
+        <i class="fas fa-map-marker-alt"></i> 
+        Location: 
+        <a href="https://www.google.com/maps/search/?api=1&query=29-9-61,+Samatha+Campus,+Nakkala+Rd,+Suryaraopet,+Govinda+Rajulu+Naidu+Street,+Vijayawada,+Andhra+Pradesh+520002" 
+           target="_blank">
+            29-9-61, Samatha Campus, Nakkala Rd, Suryaraopet, Govinda Rajulu Naidu Street, Vijayawada, Andhra Pradesh 520002
+        </a>
+    </p>
+    <p>
+        <i class="fas fa-phone"></i> 
+        Phone: 
+        <a href="tel:+919396944040">+919396944040</a>
+    </p>
+    <p>
+        <i class="fas fa-clock"></i> 
+        Hours: Mon-Sat 6:00AM-11:00PM
+    </p>
+</div>
+            <a href="https://wa.me/1234567890" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> Samathamed@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 0866-2434040</p>
+                
+            </div>
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <p>Samatha Medical: Mon-Sat 9:00AM-11:00PM</p>
+                <p>Vijayawada Medical: Mon-Sat 9:300AM-9:30PM</p>
+                <p>Study Center: Mon-Sat 6:00AM-11:00PM</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Samatha Enterprises. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    // Image slider functionality
+    function setupSlider(sliderClass) {
+        const slides = document.querySelectorAll(`.${sliderClass} .slide`);
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Only set up interval if there are multiple slides
+        if (slides.length > 1) {
+            setInterval(nextSlide, 4000); // Change slide every 4 seconds
+        }
+    }
+    
+    // Initialize all sliders
+    document.addEventListener('DOMContentLoaded', function() {
+        setupSlider('samatha-slider');
+        setupSlider('vijayawada-slider');
+        setupSlider('study-slider');
+    });
+</script>
+</body>
+</html>
